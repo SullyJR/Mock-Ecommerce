@@ -1,0 +1,76 @@
+/*for debugging
+* {outline: 2px dotted red}
+*/
+
+
+/* centre the main content area */
+main {
+	max-width: 800px;
+	margin: auto;
+}
+
+/* page headings */
+h1 {
+	text-align: center;
+	padding: 10px;
+}
+
+/* text */
+p {
+    text-align: center;
+}
+
+/* forms */
+form {
+	display: grid;
+	grid-template-columns: max-content 1fr;
+	grid-gap: 1em 0.5em;
+}
+
+label {
+	grid-column: 1 / 2;
+	text-align: right;
+}
+
+input, button, select, textarea {
+	grid-column: 2 / 3;
+}
+
+textarea {
+	height: 4em;
+	resize: vertical;
+}
+
+/* tables */
+table {
+	margin: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	border-spacing: 0px 0px;
+}
+
+td, th {
+	border: thin;
+	border-width: 0px 0px 1px 0px;
+	border-style: solid;
+	padding: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+/*navigation menu*/
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+
+.categories {
+    text-align: center;
+}
+
+.navbtn {
+    
+}

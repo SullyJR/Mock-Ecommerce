@@ -1,0 +1,152 @@
+
+/*for debugging
+* {outline: 2px dotted red}
+*/
+
+/* Colour palette */
+:root {
+    --navy: #001F3F;
+    --creme: #FFF5E1;
+    --gold: #FFD700;
+}
+
+body {
+    background-color: var(--creme);
+    color: var(--navy);
+    font-family: 'Arial', sans-serif;
+}
+
+a {
+    color: var(--navy);
+}
+
+a:hover {
+    color: var(--gold);
+}
+
+/* centre the main content area */
+main {
+	max-width: 800px;
+	margin: auto;
+}
+
+/* page headings */
+h1 {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--navy);
+    color: var(--creme);
+    border-radius: 5px;
+}
+
+/* text */
+p {
+    text-align: center;
+}
+
+/* forms */
+form {
+	display: grid;
+	grid-template-columns: max-content 1fr;
+	grid-gap: 1em 0.5em;
+}
+
+label {
+	grid-column: 1 / 2;
+	text-align: right;
+}
+
+input, button, select, textarea {
+    grid-column: 2 / 3;
+    border: 2px solid var(--navy);
+    background-color: var(--creme);
+    color: var(--navy);
+}
+
+/* Form Button Styling */
+button, input[type="submit"], input[type="button"] {
+    background-color: var(--navy);
+    border: none;
+    color: var(--creme);
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;  /* Makes it clear it's clickable */
+}
+
+button:hover, input[type="submit"]:hover, input[type="button"]:hover {
+    background-color: var(--gold);
+    color: var(--navy);
+}
+
+textarea {
+	height: 4em;
+	resize: vertical;
+}
+
+/* tables */
+table {
+	margin: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	border-spacing: 0px 0px;
+}
+
+td, th {
+	border: thin;
+	border-width: 0px 0px 1px 0px;
+	border-style: solid;
+	padding: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+/*navigation menu*/
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    background-color: var(--navy);
+    padding: 10px 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.categories {
+    text-align: center;
+}
+
+.navbtn {
+    background-color: var(--navy);
+    border: none;
+    color: var(--creme);
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s; /* Added color to the transition */
+}
+
+.navbtn:hover {
+    background-color: var(--gold);
+    color: var(--navy); /* Keeping the text color as navy on hover */
+    cursor: pointer;
+}
+
+.welcome {
+    color: var(--creme);
+    font-weight: bold;
+}
+
+.photos {
+    style: none;
+    width: 50%; /* Adjust this value as needed */
+    margin: 0 auto;
+    display: block;
+}
+
+h2 {
+    text-align: center;
+    padding: 10px;
+    color: var(--navy);
+    background-color: var(--creme);
+}
+
