@@ -1,11 +1,14 @@
 package web;
 
+import dao.CustomerDAO;
+import dao.DaoFactory;
 import io.jooby.Jooby;
 import io.jooby.ServerOptions;
 import io.jooby.gson.GsonModule;
 
 public class Server extends Jooby {
-
+    
+    CustomerDAO dao = DaoFactory.getCustomerDAO();
 
 	public Server() {
 		
@@ -13,6 +16,11 @@ public class Server extends Jooby {
 		install(new GsonModule());
 
 		mount(new StaticAssetModule());
+                
+                mount(new CustomerModule(dao));
+                
+                
+                
 	}
 
 	public static void main(String[] args) {
