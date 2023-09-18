@@ -23,6 +23,8 @@ public class Server extends Jooby {
                 
                 mount(new ProductModule(productDao));
                 
+                mount (new SaleModule());
+                
                 
                 
 	}
