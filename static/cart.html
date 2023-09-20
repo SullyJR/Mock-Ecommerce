@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <script src="js/external/vue.global.js"></script>
+        <script src="js/external/vuex.global.js"></script>
+        <script src="js/external/vuex-persistedstate.js"></script>
+        <script src="js/external/axios.js"></script>
+        <title>Cart</title>
+    </head>
+    <body>
+        <main>
+            <navmenu></navmenu>
+            <h1>Cart</h1>
+            <div class="categories">
+                <button @click.prevent="getProducts()">All</button>
+                <button v-for="category in categories" @click.prevent="filterByCategory(category)">{{category}}</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="product in products">
+                        <td>{{product.name}}</td>
+                        <td>{{product.description}}</td>
+                        <td>{{product.listPrice}}</td>
+                        <td>{{product.quantityInStock}}</td>
+                        <td><button>Buy</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+        <script type="module" src="js/cart.js"></script>
+    </body>
+</html>
