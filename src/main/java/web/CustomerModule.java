@@ -18,6 +18,8 @@ public class CustomerModule extends Jooby {
     public CustomerModule(CustomerDAO dao) {
         
         post("/api/register", ctx -> {
+            Customer customer = ctx.body().to(Customer.class);
+            dao.saveCustomer(customer);
             return ctx.send(StatusCode.CREATED);
         });
         

@@ -114,6 +114,12 @@ nav {
 
 .categories {
     text-align: center;
+    display: block;
+}
+
+.categories button {
+    margin-left: 2pt;
+    margin-right: 2pt;
 }
 
 .navbtn {
@@ -133,7 +139,6 @@ nav {
 
 .welcome {
     color: var(--creme);
-    font-weight: bold;
 }
 
 .photos {

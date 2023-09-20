@@ -5,12 +5,15 @@
 // create the Vue controller
 const app = Vue.createApp();
 
-// import the navigation menu
-import { navigationMenu } from './navigation-menu.js';
 
-// register the navigation menu under the <navmenu> tag
+// import navigation  menu component
+import { navigationMenu } from './navigation-menu.js';
 app.component('navmenu', navigationMenu);
 
-// attach the controller to the <main> tag
+// import data store
+import { dataStore } from './data-store.js'
+app.use(dataStore);
+
+// mount the page - this needs to be the last line in the file
 app.mount("main");
 

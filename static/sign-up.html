@@ -7,31 +7,34 @@
         <script src="js/external/vuex.global.js"></script>
         <script src="js/external/vuex-persistedstate.js"></script>
         <script src="js/external/axios.js"></script>
-        <title>Sign In</title>
+        <title>Sign Up</title>
     </head>
     <body>
         <main>
             <navmenu></navmenu>
-            <h1>Sign In</h1>
+            <h1>Create New Account</h1>
 
             <fieldset>
 
-                <legend>Account Details</legend>
+                <legend>Customer Details</legend>
 
-                <p></p>
+                <form @submit.prevent="createCustomer()">
 
-                <form @submit.prevent="signIn()">
                     <label>Username:</label><input type="text" v-model="customer.username" required/>
+                    <label>First Name:</label><input type="text" v-model="customer.firstName"/>
+                    <label>Last Name:</label><input type="text" v-model="customer.surname"/>
+                    <label>Email:</label><input type="text" v-model="customer.emailAddress"/>
+                    <label>Address:</label><textarea type="text" v-model="customer.shippingAddress"></textarea>
                     <label>Password:</label><input type="password" v-model="customer.password" required/>
-                    <button type="submit">Sign In</button>
+                    <button type="submit">Create Account</button>
+
                 </form>
 
             </fieldset>
 
-
-            <p>Don't have an account yet? Create one <a class="sign-up" href="sign-up.html">here</a></p>
+            <p><a href="index.html">Back to Home</a></p>
 
         </main>
-        <script type="module" src="js/sign-in.js"></script>
+        <script type="module" src="js/sign-up.js"></script>
     </body>
 </html>

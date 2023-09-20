@@ -14,10 +14,8 @@
             <navmenu></navmenu>
             <h1>Products</h1>
             <div class="categories">
-                <!-- 
-                <a href="view-products.jsp?category=All"><button>All</button></a>
-                <a href="view-products.jsp?category=<%= category%>"><button><%= category%></button></a>
-                -->
+                <button @click.prevent="getProducts()">All</button>
+                <button v-for="category in categories" @click.prevent="filterByCategory(category)">{{category}}</button>
             </div>
             <table>
                 <thead>
@@ -30,37 +28,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%
-                        // get the category from the query parameter
-                        String selectedCategory = request.getParameter("category");
-
-                        // declare the products collection
-                        Collection<Product> products;
-
-                        // if there is no cateogory parameter, or "All" is requested, return all students
-                        if (selectedCategory == null || selectedCategory.equals("All")) {
-                            products = dao.getProducts();
-                        } else {
-                            // otherwise, get the students for the requested major
-                            products = dao.filterByCategory(selectedCategory);
-                        }
-
-                        for (Product product : products) {
-                    %>
-                    <tr>
-                        <td><%= product.getName()%></td>
-                        <td><%= product.getDescription()%></td>
-                        <td><%= product.getListPrice()%></td>
-                        <td><%= product.getQuantityInStock()%></td>
+                    <tr v-for="product in products">
+                        <td>{{product.name}}</td>
+                        <td>{{product.description}}</td>
+                        <td>{{product.listPrice}}</td>
+                        <td>{{product.quantityInStock}}</td>
                         <td><button>Buy</button></td>
                     </tr>
-                    <%
-                        }
-                    %>
                 </tbody>
             </table>
 
-            <p><a class="nav" href="index.jsp">Back to Home</a></p>
+            <p><a class="nav" href="index.html">Back to Home</a></p>
 
         </main>
         <script type="module" src="js/view-products.js"></script>
