@@ -33,7 +33,7 @@
                         <td>{{product.description}}</td>
                         <td>{{product.listPrice}}</td>
                         <td>{{product.quantityInStock}}</td>
-                        <td><button>Buy</button></td>
+                        <td><button><a @click.prevent="buyProduct(product)">Buy</a></button></td>
                     </tr>
                 </tbody>
             </table>

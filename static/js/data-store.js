@@ -10,6 +10,9 @@ export const dataStore = Vuex.createStore({
 		
 		// the shopping cart items
 		items: null;
+                
+                //Selected item to add to cart
+                selectedProduct: null;
 	},
 
 	mutations: {
@@ -18,7 +21,12 @@ export const dataStore = Vuex.createStore({
 		signIn(state, customer) {
 			state.customer = customer;
 			state.items = new Array();
-		}
+		},
+                
+                // user selects a product
+                selectProduct(state, product) {
+                    state.selectedProduct = product;
+                }
 
 	},
 

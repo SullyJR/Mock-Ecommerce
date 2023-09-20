@@ -13,7 +13,8 @@ const app = Vue.createApp({
         return {
             // models map (comma separated key/value pairs)
             products: new Array(),
-            categories: new Array()
+            categories: new Array(),
+            product: new Object()
 
         };
     },
@@ -67,6 +68,12 @@ const app = Vue.createApp({
                         console.error(error);
                         alert("An error occurred - check the console for details.");
                     });
+        },
+        
+        buyProduct(product) {
+            dataStore.commit("selectProduct", product);
+            window.location = "product.html";
+            console.log("thisis the product", product);
         }
 
     },

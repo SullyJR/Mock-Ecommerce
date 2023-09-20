@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <script src="js/external/vue.global.js"></script>
+        <script src="js/external/vuex.global.js"></script>
+        <script src="js/external/vuex-persistedstate.js"></script>
+        <script src="js/external/axios.js"></script>
+        <title>Product</title>
+    </head>
+    <body>
+        <main>
+            <navmenu></navmenu>
+            <h1>How many products would you like?</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Label</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Id</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>Dodgy Doohicky</td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td>This doohicky comes with no guarantee of any kind.</td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td>$12.43</td>
+                    </tr>
+                    <tr>
+                        <td>Quantity Available</td>
+                        <td>10</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <form action="/add-to-cart" method="post">
+                <label for="quantity">Quantity:</label>
+                <input type="number" name="quantity" id="quantity" min="1" max="10" value="1">
+                <button type="submit">Add to Cart</button>
+            </form>
+
+        </main>
+        <script type="module" src="js/product.js"></script>
+    </body>
+</html>
