@@ -15,9 +15,9 @@ public class SaleItem {
 	public SaleItem() {
 	}
 
-	public SaleItem(BigDecimal quantityPurchased, BigDecimal salePrice, Product product) {
+	public SaleItem(BigDecimal quantityPurchased, Product product) {
 		this.quantityPurchased = quantityPurchased;
-		this.salePrice = salePrice;
+		this.salePrice = product.getListPrice();
 		this.product = product;
 	}
 

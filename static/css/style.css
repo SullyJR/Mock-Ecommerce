@@ -155,3 +155,7 @@ h2 {
     background-color: var(--creme);
 }
 
+.product-description {
+    text-align: left;
+    font-weight: bold;
+}

@@ -15,42 +15,37 @@
             <h1>How many products would you like?</h1>
             <table>
                 <thead>
-                    <tr>
-                        <th>Label</th>
-                        <th>Value</th>
-                    </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Id</td>
-                        <td>1</td>
+                        <td class="product-description">Id:</td>
+                        <td>{{product.productId}}</td>
                     </tr>
                     <tr>
-                        <td>Name</td>
-                        <td>Dodgy Doohicky</td>
+                        <td class="product-description">Name:</td>
+                        <td>{{product.name}}</td>
                     </tr>
                     <tr>
-                        <td>Description</td>
-                        <td>This doohicky comes with no guarantee of any kind.</td>
+                        <td class="product-description">Description:</td>
+                        <td>{{product.description}}</td>
                     </tr>
                     <tr>
-                        <td>Price</td>
-                        <td>$12.43</td>
+                        <td class="product-description">Price:</td>
+                        <td>{{product.listPrice}}</td>
                     </tr>
                     <tr>
-                        <td>Quantity Available</td>
-                        <td>10</td>
-                    </tr>
+                        <td class="product-description">Quantity Available:</td>
+                        <td>{{product.quantityInStock}}</td>
                 </tbody>
             </table>
 
-            <form action="/add-to-cart" method="post">
+            <form @submit.prevent="addToCart()">
                 <label for="quantity">Quantity:</label>
-                <input type="number" name="quantity" id="quantity" min="1" max="10" value="1">
+                <input type="number" v-model="quantity">
                 <button type="submit">Add to Cart</button>
             </form>
 
         </main>
-        <script type="module" src="js/product.js"></script>
+        <script type="module" src="js/cart.js"></script>
     </body>
 </html>

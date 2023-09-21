@@ -73,7 +73,6 @@ const app = Vue.createApp({
         buyProduct(product) {
             dataStore.commit("selectProduct", product);
             window.location = "product.html";
-            console.log("thisis the product", product);
         }
 
     },
