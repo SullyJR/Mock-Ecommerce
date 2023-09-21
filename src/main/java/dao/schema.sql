@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS Customer (
 
 CREATE TABLE IF NOT EXISTS sale (
     sale_id INT NOT NULL AUTO_INCREMENT,
-    customer_username INT NOT NULL,
+    customer_username VARCHAR(20) NOT NULL,
     sale_date DATETIME,
     sale_status VARCHAR(255),
     CONSTRAINT pk_sale_ID PRIMARY KEY (sale_id),
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS sale (
 CREATE TABLE IF NOT EXISTS sale_item (
     sale_item_id INT NOT NULL AUTO_INCREMENT,
     sale_id INT NOT NULL,
-    product_id INT NOT NULL,
+    product_id VARCHAR(20) NOT NULL,
     quantity INT NOT NULL,
     sale_price DECIMAL(10,2) NOT NULL,
     CONSTRAINT pk_sale__item_id PRIMARY KEY (sale_item_id),
