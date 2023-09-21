@@ -10,79 +10,80 @@ import java.util.HashSet;
  */
 public class Sale {
 
-	private Integer saleId;
-	private LocalDateTime date;
-	private Customer customer;
-	private String status;
+    private Integer saleId;
+    private transient LocalDateTime date;
+    private Customer customer;
+    private String status;
 
-	private Collection<SaleItem> items = new HashSet<>();
+    private Collection<SaleItem> items = new HashSet<>();
 
-	public Sale() {
-	}
+    public Sale() {
+    }
 
-	public Sale(LocalDateTime date, Customer customer, String status) {
-		this.date = date;
-		this.customer = customer;
-		this.status = status;
-	}
+    public Sale(Integer saleId, LocalDateTime date, Customer customer, String status) {
+        this.saleId = saleId;
+        this.date = date;
+        this.customer = customer;
+        this.status = status;
+    }
 
-	public Customer getCustomer() {
-		return customer;
-	}
+    public Customer getCustomer() {
+        return customer;
+    }
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
-	public Integer getSaleId() {
-		return saleId;
-	}
+    public Integer getSaleId() {
+        return saleId;
+    }
 
-	public void setSaleId(Integer saleId) {
-		this.saleId = saleId;
-	}
+    public void setSaleId(Integer saleId) {
+        this.saleId = saleId;
+    }
 
-	public LocalDateTime getDate() {
-		return date;
-	}
+    public LocalDateTime getDate() {
+        return date;
+    }
 
-	public void setDate(LocalDateTime date) {
-		this.date = date;
-	}
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public String getStatus() {
+        return status;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-	public Collection<SaleItem> getItems() {
-		return items;
-	}
+    public Collection<SaleItem> getItems() {
+        return items;
+    }
 
-	public void setItems(Collection<SaleItem> items) {
-		this.items = items;
-	}
+    public void setItems(Collection<SaleItem> items) {
+        this.items = items;
+    }
 
-	public void addItem(SaleItem item) {
-		items.add(item);
-	}
+    public void addItem(SaleItem item) {
+        items.add(item);
+    }
 
-	public BigDecimal getTotal() {
-		BigDecimal total = BigDecimal.ZERO;
+    public BigDecimal getTotal() {
+        BigDecimal total = BigDecimal.ZERO;
 
-		for (SaleItem item : items) {
-			total = total.add(item.getItemTotal());
-		}
+        for (SaleItem item : items) {
+            total = total.add(item.getItemTotal());
+        }
 
-		return total;
-	}
+        return total;
+    }
 
-	@Override
-	public String toString() {
-		return "Sale{" + "saleId=" + saleId + ", date=" + date + ", customer=" + customer + ", status=" + status + ", items=" + items + '}';
-	}
+    @Override
+    public String toString() {
+        return "Sale{" + "saleId=" + saleId + ", date=" + date + ", customer=" + customer + ", status=" + status + ", items=" + items + '}';
+    }
 
 }

@@ -4,6 +4,8 @@
  */
 "use strict";
 
+var SalesApi = "/api/sales";
+
 class SaleItem {
 	constructor(product, quantityPurchased) {
 		this.product = product;
@@ -60,6 +62,19 @@ const app = Vue.createApp({
                 total = total + (item.product.listPrice * item.quantityPurchased);
             });
             return this.formatCurrency(total);
+        },
+        
+        checkout() {
+            let sale = new Sale(this.customer, this.items);
+            axios.post(SalesApi, sale)
+                    .then(() => {
+                        dataStore.commit("clearItems");
+                        window.location = 'order-confirmed.html';
+                    })
+                    .catch(error => {
+                        console.log(sale);
+                        console.error(error);
+                    });
         }
 
     },

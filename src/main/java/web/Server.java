@@ -3,6 +3,7 @@ package web;
 import dao.CustomerDAO;
 import dao.DaoFactory;
 import dao.ProductDAO;
+import dao.SaleDAO;
 import io.jooby.Jooby;
 import io.jooby.ServerOptions;
 import io.jooby.gson.GsonModule;
@@ -11,6 +12,7 @@ public class Server extends Jooby {
     
     CustomerDAO customerDao = DaoFactory.getCustomerDAO();
     ProductDAO productDao = DaoFactory.getProductDAO();
+    SaleDAO saleDao = DaoFactory.getSaleDAO();
     
 	public Server() {
 		
@@ -23,7 +25,7 @@ public class Server extends Jooby {
                 
                 mount(new ProductModule(productDao));
                 
-                mount (new SaleModule());
+                mount (new SaleModule(saleDao));
                 
                 
                 
