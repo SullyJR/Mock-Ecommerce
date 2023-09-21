@@ -46,9 +46,26 @@ const app = Vue.createApp({
         // comma separated function declarations
         addToCart(){
             dataStore.commit("addItem", new SaleItem(this.product, this.quantity));
+            window.location = 'view-products.html';
+        },
+        
+        getItemTotal(item){
+            const price = item.product.listPrice * item.quantityPurchased;
+            return this.formatCurrency(price);
+        },
+        
+        getCartTotal(){
+            let total = 0.00;
+            this.items.forEach((item) => {
+                total = total + (item.product.listPrice * item.quantityPurchased);
+            });
+            return this.formatCurrency(total);
         }
 
-    }
+    },
+    
+    // other modules
+    mixins: [NumberFormatter] 
 
 });
 
@@ -61,6 +78,9 @@ app.component('navmenu', navigationMenu);
 // import data store
 import { dataStore } from './data-store.js'
 app.use(dataStore);	
+
+// import number formatter
+import { NumberFormatter } from './number-formatter.js';
 
 // mount the page - this needs to be the last line in the file
 app.mount("main");
