@@ -13,6 +13,9 @@ export const dataStore = Vuex.createStore({
                 
                 //Selected item to add to cart
                 selectedProduct: null;
+                
+                // basic access authentication token
+                authToken: null;
 	},
 
 	mutations: {
@@ -37,6 +40,11 @@ export const dataStore = Vuex.createStore({
                 clearItems(state) {
                     state.items = new Array();
                     console.log("cleared Items");
+                },
+                
+                // store basic access token
+                authToken(state, token) {
+                    state.authToken = token;
                 }
 
 	},

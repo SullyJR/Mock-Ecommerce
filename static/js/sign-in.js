@@ -24,7 +24,9 @@ const app = Vue.createApp({
     methods: {
         // comma separated function declarations
         signIn() {
-
+            
+            this.createToken(this.customer.username, this.customer.password);
+            
             // send GET request
             axios.get(customersUsernameApi({'username':this.customer.username}))
                     .then(response => {
@@ -35,14 +37,14 @@ const app = Vue.createApp({
                     })
                     .catch(error => {
                         console.error(error);
-                        alert("An error occurred - check the console for details.");
+                        alert("Incorrect username or password, please try again.");
                     });
 
         }
 
     },
         // other modules
-        mixins: []
+        mixins: [BasicAccessAuthentication]
 
 });
 
@@ -50,12 +52,15 @@ const app = Vue.createApp({
 
 // import navigation  menu component
 import { navigationMenu } from './navigation-menu.js';
-        app.component('navmenu', navigationMenu);
+app.component('navmenu', navigationMenu);
 
 // import data store
 import { dataStore } from './data-store.js'
-        app.use(dataStore);
+app.use(dataStore);
+
+// import authentication module
+import { BasicAccessAuthentication } from './authentication.js';
 
 // mount the page - this needs to be the last line in the file
-        app.mount("main");
+app.mount("main");
 

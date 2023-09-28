@@ -5,20 +5,17 @@
 package dao;
 
 import domain.Customer;
-import java.util.Collection;
 
 /**
  *
  * @author callumsullivan
  */
-public interface CustomerDAO {
+public interface CustomerDAO extends CredentialsValidator {
     
     void saveCustomer(Customer customer);
     
     void removeCustomer(Customer customer);
     
     Customer getCustomerByUsername(String username);
-    
-    boolean checkCredentials(String username, String password);
     
 }

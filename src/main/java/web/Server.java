@@ -7,6 +7,7 @@ import dao.SaleDAO;
 import io.jooby.Jooby;
 import io.jooby.ServerOptions;
 import io.jooby.gson.GsonModule;
+import java.util.Set;
 
 public class Server extends Jooby {
     
@@ -16,15 +17,16 @@ public class Server extends Jooby {
     
 	public Server() {
 		
-
-		install(new GsonModule());
-
-		mount(new StaticAssetModule());
+                mount(new StaticAssetModule());
+		
+                install(new GsonModule());
                 
-                mount(new CustomerModule(customerDao));
-                
+                install(new BasicAccessAuth(customerDao, Set.of("/api/.*"), Set.of("/api/register")));
+		
                 mount(new ProductModule(productDao));
                 
+                mount(new CustomerModule(customerDao));
+                              
                 mount (new SaleModule(saleDao));
                 
                 

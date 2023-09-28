@@ -14,6 +14,11 @@ app.component('navmenu', navigationMenu);
 import { dataStore } from './data-store.js'
 app.use(dataStore);
 
+// import authentication module
+import { BasicAccessAuthentication } from './authentication.js';
+
 // mount the page - this needs to be the last line in the file
 app.mount("main");
+
+
 

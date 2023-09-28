@@ -1,11 +1,9 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/SQLTemplate.sql to edit this template
- */
-/**
- * Author:  callumsullivan
- * Created: 25/08/2023
- */
+DROP TABLE IF EXISTS sale_item;
+DROP TABLE IF EXISTS sale;
+DROP TABLE IF EXISTS customer;
+DROP TABLE IF EXISTS product;
+
+
 CREATE TABLE IF NOT EXISTS product (
     product_id VARCHAR(20),
     name VARCHAR(100) NOT NULL,
@@ -19,7 +17,7 @@ CREATE TABLE IF NOT EXISTS product (
     CONSTRAINT chk_quantityInStock_non_negative CHECK(quantity_in_stock >= 0)
 );
 
-CREATE TABLE IF NOT EXISTS Customer (
+CREATE TABLE IF NOT EXISTS customer (
     customer_id INTEGER AUTO_INCREMENT (1000) NOT NULL,
     username VARCHAR(20) NOT NULL,
     first_name VARCHAR(20) NOT NULL,
@@ -53,4 +51,5 @@ CREATE TABLE IF NOT EXISTS sale_item (
     CONSTRAINT fk_sale FOREIGN KEY (sale_id) REFERENCES sale (sale_id),
     CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES product (product_id)
 );
+
 

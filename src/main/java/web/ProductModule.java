@@ -8,51 +8,51 @@ import dao.ProductDAO;
 import domain.Product;
 import io.jooby.Jooby;
 import io.jooby.StatusCode;
+import java.sql.Blob;
 import java.util.Collection;
 
 /**
  *
  * @author callumsullivan
  */
-public class ProductModule extends Jooby{
-    
-    public ProductModule(ProductDAO dao){
-        
+public class ProductModule extends Jooby {
+
+    public ProductModule(ProductDAO dao) {
+
         get("/api/products", ctx -> dao.getProducts());
-        
+
         get("/api/categories", ctx -> dao.getCategories());
-        
+
         get("/api/products/{id}", ctx -> {
-            
+
             String id = ctx.path("id").value();
-            
+
             Product product = dao.searchById(id);
-            
-            if(product == null){
-                // no customer with that username so return 404
-		return ctx.send(StatusCode.NOT_FOUND);
+
+            if (product == null) {
+                // no product with that username so return 404
+                return ctx.send(StatusCode.NOT_FOUND);
             } else {
                 return product;
             }
-            
+
         });
-        
+
         get("/api/categories/{category}", ctx -> {
-            
+
             String category = ctx.path("category").value();
-            
+
             Collection<Product> products = dao.filterByCategory(category);
-            
-            if(products == null){
+
+            if (products == null) {
                 // no customer with that username so return 404
-		return ctx.send(StatusCode.NOT_FOUND);
+                return ctx.send(StatusCode.NOT_FOUND);
             } else {
                 return products;
             }
-            
+
         });
-        
-    
+
     }
-    
+
 }

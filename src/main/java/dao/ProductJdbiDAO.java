@@ -24,7 +24,7 @@ public interface ProductJdbiDAO extends ProductDAO {
     public Product searchById(@Bind("productId") String id);
 
     @Override
-    @SqlUpdate ("insert into product (product_id, name, description, category, list_price, quantity_in_stock)"
+    @SqlUpdate ("insert into product (product_id, name, description, category, list_price, quantity_in_stock, image)"
             + "values(:productId, :name, :description, :category, :listPrice, :quantityInStock)")
     @RegisterBeanMapper(Product.class)
     public void saveProduct(@BindBean Product product);

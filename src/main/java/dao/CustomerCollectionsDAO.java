@@ -32,7 +32,7 @@ public class CustomerCollectionsDAO implements CustomerDAO {
     }
     
     @Override
-    public boolean checkCredentials (String username, String password){
+    public boolean validateCredentials (String username, String password){
         Customer customer = customers.get(username);
         return customer != null && customer.getPassword().equals(password);
     }

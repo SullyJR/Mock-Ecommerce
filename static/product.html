@@ -12,7 +12,7 @@
     <body>
         <main>
             <navmenu></navmenu>
-            <h1>How many products would you like?</h1>
+            <h1>{{product.name}}</h1>
             <table>
                 <thead>
                 </thead>
@@ -20,10 +20,6 @@
                     <tr>
                         <td class="product-description">Id:</td>
                         <td>{{product.productId}}</td>
-                    </tr>
-                    <tr>
-                        <td class="product-description">Name:</td>
-                        <td>{{product.name}}</td>
                     </tr>
                     <tr>
                         <td class="product-description">Description:</td>
@@ -41,10 +37,12 @@
 
             <form @submit.prevent="addToCart()">
                 <label for="quantity">Quantity:</label>
-                <input type="number" v-model="quantity">
-                <button type="submit">Add to Cart</button>
+                <input type="number" v-model="quantity" :max="product.quantityInStock" min="1" step="1">
+                <button type="submit" v-if="product.quantityInStock > 0">Add to Cart</button>
             </form>
-
+            <div v-if="product.quantityInStock === 0" class="out-of-stock-message">
+                This product is currently out of stock.
+            </div>
         </main>
         <script type="module" src="js/cart.js"></script>
     </body>

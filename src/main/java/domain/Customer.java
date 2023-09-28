@@ -1,10 +1,6 @@
 package domain;
 
 import java.util.Objects;
-import net.sf.oval.constraint.Email;
-import net.sf.oval.constraint.Length;
-import net.sf.oval.constraint.NotBlank;
-import net.sf.oval.constraint.NotNull;
 
 /**
  * @author Mark George
@@ -13,27 +9,14 @@ public class Customer {
 
     private Integer customerId;
 
-    @NotNull(message = "Username must be provided.")
-    @NotBlank(message = "Username must be provided.")
-    @Length(min = 2, message = "Username must contain at least two characters.")
     private String username;
 
-    @NotNull(message = "First name must be provided.")
-    @NotBlank(message = "First name must be provided.")
     private String firstName;
-    
-    @NotNull(message = "Last Name must be provided.")
-    @NotBlank(message = "Last Name must be provided.")
+
     private String surname;
     
-    @NotNull(message = "Password must be provided.")
-    @NotBlank(message = "Password must be provided.")
-    @Length(min=6, message="Password must contain at least 6 characters.")
     private String password;
     
-    @NotNull(message = "Email must be provided.")
-    @NotBlank(message = "Email must be provided.")
-    @Email(message = "Must be a valid Email.")
     private String emailAddress;
     
     private String shippingAddress;
