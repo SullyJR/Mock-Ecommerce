@@ -3,7 +3,6 @@ package gui;
 import dao.ProductDAO;
 import domain.Product;
 import helpers.SimpleListModel;
-import helpers.ImageFilter;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.math.BigDecimal;

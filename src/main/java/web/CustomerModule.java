@@ -33,6 +33,9 @@ public class CustomerModule extends Jooby {
                 // no customer with that username so return 404
 		return ctx.send(StatusCode.NOT_FOUND);
             } else {
+                customer.setPassword(null);
+                customer.setShippingAddress(null);
+                customer.setEmailAddress(null);
                 return customer;
             }
             

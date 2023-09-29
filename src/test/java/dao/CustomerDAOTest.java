@@ -88,15 +88,15 @@ public class CustomerDAOTest {
     @Test
     public void testCheckCredentials() {
         // check for valid credentials
-        boolean valid = dao.checkCredentials("JaneDoe", "password1");
+        boolean valid = dao.validateCredentials("JaneDoe", "password1");
         assertThat(valid, is(true));
 
         // make sure invalid password works correctly
-        boolean invalidPassword = dao.checkCredentials("JaneDoe", "wrongPassword");
+        boolean invalidPassword = dao.validateCredentials("JaneDoe", "wrongPassword");
         assertThat(invalidPassword, is(false));
 
         // make sure nonexistent user cannot login
-        boolean nonexistentUser = dao.checkCredentials("NonExistentUser", "password1");
+        boolean nonexistentUser = dao.validateCredentials("NonExistentUser", "password1");
         assertThat(nonexistentUser, is(false));
     }
 }

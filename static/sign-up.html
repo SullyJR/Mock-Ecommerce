@@ -20,12 +20,12 @@
 
                 <form @submit.prevent="createCustomer()">
 
-                    <label>Username:</label><input type="text" v-model="customer.username" required/>
+                    <label>Username:</label><input type="text" v-model="customer.username" minlength="2" required/>
                     <label>First Name:</label><input type="text" v-model="customer.firstName"required/>
                     <label>Last Name:</label><input type="text" v-model="customer.surname" required/>
-                    <label>Email:</label><input type="email" v-model="customer.emailAddress" required/>
-                    <label>Address:</label><textarea type="text" v-model="customer.shippingAddress"></textarea>
-                    <label>Password:</label><input type="password" v-model="customer.password" required/>
+                    <label>Email:</label><input type="email" v-model="customer.emailAddress" pattern=".*@.*\..*" required/>
+                    <label>Address:</label><textarea type="text" v-model="customer.shippingAddress" required></textarea>
+                    <label>Password:</label><input type="password" v-model="customer.password" minlength="6" required/>
                     <button type="submit">Create Account</button>
 
                 </form>
