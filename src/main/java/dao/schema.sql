@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS customer (
 );
 
 CREATE TABLE IF NOT EXISTS sale (
-    sale_id INT NOT NULL AUTO_INCREMENT,
+    sale_id INT NOT NULL AUTO_INCREMENT (3000),
     customer_username VARCHAR(20) NOT NULL,
     sale_date DATETIME,
     sale_status VARCHAR(255),
